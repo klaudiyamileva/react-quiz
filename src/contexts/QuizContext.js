@@ -78,7 +78,7 @@ function QuizProvider({ children }) {
   const maxPoints = questions.reduce((acc, curr) => acc + curr.points, 0);
 
   useEffect(() => {
-    fetch("../../netlify/functions/json-server")
+    fetch("http://localhost:9000/questions")
       .then((res) => res.json())
       .then((data) => dispatch({ type: "dataReceived", payload: data }))
       .catch((error) => dispatch({ type: "dataFailed" }));
